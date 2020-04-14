@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize_user
+   
     
     def index 
         users = User.all
@@ -8,13 +8,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user.save
-            sessions[:user_id] = @user.id
-            redirect_to controller: 'sessions', action: 'new'
-        else 
-            flash[:errors] = "Cannot create user"
-            redirect_to controller: 'users', action: 'new'
-        end
     end
 
     private 

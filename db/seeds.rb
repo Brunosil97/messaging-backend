@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# bruno = User.create(name: "Bruno", email: "bruno@gmail.com", password: "123", profileImage: ".jpg")
-# amy = User.create(name: "Amy", email: "amy@gmail.com", password: "456", profileImage: ".jpg2")
+bruno = User.create(name: "Bruno", email: "bruno@gmail.com", password: "123", profileImage: ".jpg")
+amy = User.create(name: "Amy", email: "amy@gmail.com", password: "456", profileImage: ".jpg2")
 
 # chat = Chat.create(hasRead: false)
 
