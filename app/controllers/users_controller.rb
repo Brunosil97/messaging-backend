@@ -20,10 +20,15 @@ class UsersController < ApplicationController
         render json: { error: "You are not authorized" }
       end
     end
+    
+    def show
+        user = User.find_by(id: params[:id])
+        render json: user
+    end
 
     def chats
       if get_user
-          render json: { chats: get_user.chats }
+          render json: get_user.chats.to_json(:include => {:users => {:only => [:id, :name, :email]}, :messages => {:only => [:content, :user_id]}})
         else
           render json: { error: "You are not authorized" }
         end

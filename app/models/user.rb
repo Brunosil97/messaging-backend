@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
     validates :email, uniqueness: true
     validates :name, presence: true
+
+    def get_chats
+        
+    end
 end
