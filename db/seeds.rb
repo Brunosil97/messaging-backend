@@ -8,13 +8,29 @@
 
 bruno = User.create(name: "Bruno", email: "bruno@gmail.com", password: "123", profileImage: ".jpg")
 amy = User.create(name: "Amy", email: "amy@gmail.com", password: "456", profileImage: ".jpg2")
+simon = User.create(name: "simon", email: "simon@gmail.com", password: "789", profileImage: ".jpg2")
 
-chat = Chat.create(hasRead: false)
+chat1 = Chat.create(hasRead: false)
+chat2 = Chat.create(hasRead: false)
+chat3 = Chat.create(hasRead: false)
 
-chatroom = UserInChat.create(chat_id: chat.id, user_id: bruno.id)
-chatroom2 = UserInChat.create(chat_id: chat.id, user_id: amy.id)
+chatroom1 = UserInChat.create(chat_id: chat1.id, user_id: bruno.id)
+chatroom2 = UserInChat.create(chat_id: chat1.id, user_id: amy.id)
 
-message1 = Message.create(content: "hello amy", user_id: bruno.id, chat_id: chat.id)
-message2 = Message.create(content: "hello bruno", user_id: amy.id, chat_id: chat.id)
+chatroom3 = UserInChat.create(chat_id: chat2.id, user_id: bruno.id)
+chatroom4 = UserInChat.create(chat_id: chat2.id, user_id: simon.id)
+
+
+chatroom5 = UserInChat.create(chat_id: chat3.id, user_id: amy.id)
+chatroom6 = UserInChat.create(chat_id: chat3.id, user_id: simon.id)
+
+message1 = Message.create(content: "hello amy", user_id: bruno.id, chat_id: chat1.id)
+message2 = Message.create(content: "hello bruno", user_id: amy.id, chat_id: chat1.id)
+
+message3 = Message.create(content: "hello simon", user_id: bruno.id, chat_id: chat2.id)
+message4 = Message.create(content: "hello bruno", user_id: simon.id, chat_id: chat2.id)
+
+message3 = Message.create(content: "hello simon", user_id: amy.id, chat_id: chat3.id)
+message4 = Message.create(content: "hello amy", user_id: simon.id, chat_id: chat3.id)
 
 puts "SEEDED"
