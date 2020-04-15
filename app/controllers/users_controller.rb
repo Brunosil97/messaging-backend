@@ -17,6 +17,15 @@ class UsersController < ApplicationController
         render json: { error: "You are not authorized" }
       end
     end
+
+    def chats
+        if get_user
+          render json: { chats: get_user.chats }
+          byebug
+        else
+          render json: { error: "You are not authorized" }
+        end
+    end
   
     def index 
         users = User.all
