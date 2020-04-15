@@ -31,5 +31,3 @@ message4 = Message.create(content: "hello bruno", user_id: simon.id, chat_id: ch
 
 message3 = Message.create(content: "hello simon", user_id: amy.id, chat_id: chat3.id)
 message4 = Message.create(content: "hello amy", user_id: simon.id, chat_id: chat3.id)
-
-puts "SEEDED"
