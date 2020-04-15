@@ -1,3 +1,5 @@
+
+
 class ApplicationController < ActionController::API
   
     # def secret

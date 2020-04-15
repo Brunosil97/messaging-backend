@@ -1,5 +1,8 @@
 
 class UsersController < ApplicationController
+    # skip_before_action :authorize_user
+    # skip_before_action :verify_authenticity_token
+    
 
     def sign_in
       user = User.find_by(email: params[:email])
@@ -33,12 +36,13 @@ class UsersController < ApplicationController
     end 
 
     def create
+        byebug
         @user = User.create(user_params)
     end
 
     private 
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :profileImage)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
   end
