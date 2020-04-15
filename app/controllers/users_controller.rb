@@ -22,9 +22,8 @@ class UsersController < ApplicationController
     end
 
     def chats
-        if get_user
+      if get_user
           render json: { chats: get_user.chats }
-          byebug
         else
           render json: { error: "You are not authorized" }
         end
@@ -36,8 +35,8 @@ class UsersController < ApplicationController
     end 
 
     def create
-        byebug
         @user = User.create(user_params)
+        render json: @user
     end
 
     private 

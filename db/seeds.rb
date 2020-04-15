@@ -20,7 +20,6 @@ chatroom2 = UserInChat.create(chat_id: chat1.id, user_id: amy.id)
 chatroom3 = UserInChat.create(chat_id: chat2.id, user_id: bruno.id)
 chatroom4 = UserInChat.create(chat_id: chat2.id, user_id: simon.id)
 
-
 chatroom5 = UserInChat.create(chat_id: chat3.id, user_id: amy.id)
 chatroom6 = UserInChat.create(chat_id: chat3.id, user_id: simon.id)
 
