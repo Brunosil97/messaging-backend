@@ -1,7 +1,7 @@
 
 class UsersController < ApplicationController
-    skip_before_action :authorize_user
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :authorize_user
+    # skip_before_action :verify_authenticity_token
     
 
     def sign_in
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     end 
 
     def create
+        byebug
         @user = User.create(user_params)
     end
 
