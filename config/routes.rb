@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/sign-in", to: "users#sign_in"
   get "/validate", to: "users#validate"
   get "/chats_for_users", to: "users#chats"
+  post "/new_message", to: "messages#new_message"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
