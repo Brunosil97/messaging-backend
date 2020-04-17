@@ -6,9 +6,20 @@ class ChatsController < ApplicationController
     end
 
     def create
-        chat = Chat.create(hasRead: params[:hasRead])
+        chat = Chat.create(hasRead: false)
         render json: chat
     end 
+
+    def new_chat
+      
+        chat = Chat.create(hasRead: false)
+        friend = User.find_by(email: params[:email])
+        user = User.find_by(id: params[:user_id])
+        user1 = UserInChat.create(chat_id: chat.id, user_id: params[:user_id])
+        user2 = UserInChat.create(chat_id: chat.id, user_id: friend.id)
+        response = {:chat => chat, :user => user, :friend => friend, :user1 => user1, :user2 => user2}
+        render json: response
+    end
 
 
     def show

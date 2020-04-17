@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "/sign-in", to: "users#sign_in"
   get "/validate", to: "users#validate"
   get "/chats_for_users", to: "users#chats"
-  post "/new_chat_with_message", to: "messages#new_chat_with_message"
+  post "/new_chat", to: "chats#new_chat"
 
   mount ActionCable.server => '/cable'
   
