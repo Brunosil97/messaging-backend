@@ -15,10 +15,14 @@ class ChatsController < ApplicationController
         chat = Chat.create(hasRead: false)
         friend = User.find_by(email: params[:email])
         user = User.find_by(id: params[:user_id])
-        user1 = UserInChat.create(chat_id: chat.id, user_id: params[:user_id])
-        user2 = UserInChat.create(chat_id: chat.id, user_id: friend.id)
-        response = {:chat => chat, :user => user, :friend => friend, :user1 => user1, :user2 => user2}
-        render json: response
+        if (!friend || !chat || !user) 
+            render json: {error: "User doesn't exist, try again"}
+        else
+            user1 = UserInChat.create(chat_id: chat.id, user_id: params[:user_id])
+            user2 = UserInChat.create(chat_id: chat.id, user_id: friend.id)
+            response = {:chat => chat, :user => user, :friend => friend, :user1 => user1, :user2 => user2}
+            render json: response
+        end
     end
 
 
