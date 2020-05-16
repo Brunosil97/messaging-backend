@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     def sign_in
       user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
-        render json: { user: user, token: generate_token(id: user.id) }
+        render json: { email: user.email, id: user.id, name: user.name, profileImage: user.profileImage, token: generate_token(id: user.id) }
       else
         render json: { error: "Username or Password is invalid "}
       end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
     def validate
       if get_user
-        render json: { user: user, token: generate_token(id: get_user.id)}
+        render json: { email: get_user.email, id: get_user.id, name: get_user.name, profileImage: get_user.profileImage, token: generate_token(id: get_user.id)}
       else
         render json: { error: "You are not authorized" }
       end
